@@ -8,6 +8,6 @@ namespace ExecuteIdentityFramework.Models
 {
     public class AppUser:IdentityUser
     {
-
+        //additional prorerties will go here
     }
 }

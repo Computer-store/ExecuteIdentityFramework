@@ -31,7 +31,7 @@ namespace ExecuteIdentityFramework.Infrastructure
         }
         public void PerfomInicialSetup(ApplIdentityDbContext context)
         {
-
+            //context configurations settings
         }
     }
 }
