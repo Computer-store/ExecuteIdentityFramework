@@ -12,7 +12,7 @@ namespace ExecuteIdentityFramework.Infrastructure
         
     {
         
-        public ApplIdentityDbContext() : base("IdentityDb") { }
+        public ApplIdentityDbContext() : base("IdentityDbConnectionString") { }
         static ApplIdentityDbContext()
         {
             Database.SetInitializer<ApplIdentityDbContext>(new IdentityDbInit());
