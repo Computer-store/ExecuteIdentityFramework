@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ExecuteIdentityFramework.DAO
 {
-    public class Orders
+    public class Employees
     {
     }
 }

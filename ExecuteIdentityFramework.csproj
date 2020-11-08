@@ -333,14 +333,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAO\Basket.cs" />
-    <Compile Include="DAO\DeliveryMethods.cs" />
-    <Compile Include="DAO\Employee.cs" />
-    <Compile Include="DAO\Orders.cs" />
-    <Compile Include="DAO\OrderStates.cs" />
+    <Compile Include="DAO\Documents\Basket.cs" />
+    <Compile Include="DAO\Documents\DeliveryMethod.cs" />
+    <Compile Include="DAO\Employees.cs" />
+    <Compile Include="DAO\Documents\Order.cs" />
+    <Compile Include="DAO\Documents\OrderState.cs" />
     <Compile Include="DAO\Positions.cs" />
-    <Compile Include="DAO\Products.cs" />
-    <Compile Include="DAO\SupplerCompanies.cs" />
+    <Compile Include="DAO\Documents\Product.cs" />
+    <Compile Include="DAO\Documents\SupplerCompany.cs" />
+    <Compile Include="DAO\WorkWithDatabase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

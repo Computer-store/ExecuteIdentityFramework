@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace ExecuteIdentityFramework.DAO
 {
-    public class OrderStates
+    public class OrderState
     {
         private string _OrderState, _Description;
-        public string Id { get;}
-        public string OrderState {
+        [BsonId]
+        public string Id { get; set; }
+        public string State {
             get
             {
                 return _OrderState;
