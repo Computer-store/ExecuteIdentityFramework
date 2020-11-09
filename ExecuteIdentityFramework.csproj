@@ -348,6 +348,7 @@
     <Compile Include="Infrastructure\ApplIdentityDbContext.cs" />
     <Compile Include="Infrastructure\AppUserManager.cs" />
     <Compile Include="Models\AppUserModels.cs" />
+    <Compile Include="Models\UseViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -366,6 +367,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Admin\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
