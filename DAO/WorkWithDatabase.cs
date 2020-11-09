@@ -7,6 +7,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using ExecuteIdentityFramework.DAO;
+using System.Configuration;
 
 namespace ExecuteIdentityFramework.DAO
 {
@@ -27,9 +28,15 @@ namespace ExecuteIdentityFramework.DAO
                 }
             }
         }
+        public WorkWithDatabase()
+        {
+            _ConnectionString = ConfigurationManager.ConnectionStrings["MongoDbConnection"].ConnectionString;
+
+
+        }
         public List<Basket> Basket { get; set; }
         public List<DeliveryMethod> DeliveryMethods {get; set;}
-        public List<>
+        //public List<>
 
     }
 }
