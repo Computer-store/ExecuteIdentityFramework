@@ -8,7 +8,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ExecuteIdentityFramework.DAO
 {
-    public class DeliveryMethod
+    public class DeliveryMethods
     {
        
         public ObjectId Id { get; set; }

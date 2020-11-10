@@ -35,7 +35,7 @@ namespace ExecuteIdentityFramework.DAO
 
         }
         public List<Basket> Basket { get; set; }
-        public List<DeliveryMethod> DeliveryMethods {get; set;}
+        public List<DeliveryMethods> DeliveryMethods {get; set;}
         //public List<>
 
     }

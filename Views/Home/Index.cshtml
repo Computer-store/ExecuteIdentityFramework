@@ -1,7 +1,19 @@
-﻿@{ 
-    ViewBag.Title = "Index";
+﻿
+
+@using System.Collections.Generic
+
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="panel-primary">
+
+@model Dictionary<string, object>
+@{
+
+    ViewBag.Title = "ASP.NET Identity";
+}
+
+
+<div class="panel panel-primary">
     <div class="panel-heading">User details</div>
     <table class="table table-striped">
         @foreach (string key in Model.Keys)
@@ -13,4 +25,3 @@
         }
     </table>
 </div>
-
