@@ -315,17 +315,18 @@
   <ItemGroup>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ComputerStore\DAO\PayMethods.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAO\Documents\Basket.cs" />
-    <Compile Include="DAO\Documents\DeliveryMethods.cs" />
-    <Compile Include="DAO\Employees.cs" />
-    <Compile Include="DAO\Documents\Orders.cs" />
-    <Compile Include="DAO\Documents\OrderState.cs" />
-    <Compile Include="DAO\Positions.cs" />
-    <Compile Include="DAO\Documents\Product.cs" />
-    <Compile Include="DAO\Documents\SupplerCompany.cs" />
-    <Compile Include="DAO\WorkWithDatabase.cs" />
+    <Compile Include="ComputerStore\DAO\Basket.cs" />
+    <Compile Include="ComputerStore\DAO\DeliveryMethods.cs" />
+    <Compile Include="ComputerStore\DAO\Users.cs" />
+    <Compile Include="ComputerStore\DAO\Orders.cs" />
+    <Compile Include="ComputerStore\DAO\OrderStates.cs" />
+    <Compile Include="ComputerStore\DAO\Positions.cs" />
+    <Compile Include="ComputerStore\DAO\Product.cs" />
+    <Compile Include="ComputerStore\DAO\SupplerCompanies.cs" />
+    <Compile Include="ComputerStore\WorkWithDatabase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

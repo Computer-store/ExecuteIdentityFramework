@@ -7,11 +7,11 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ExecuteIdentityFramework.DAO
 {
-    public class OrderState
+    public class OrderStates
     {
         private string _OrderState, _Description;
         [BsonId]
-        public ObjectId Id { get; set; }
+        public int Id { get; set; }
         
         public string State {
             get
@@ -22,7 +22,7 @@ namespace ExecuteIdentityFramework.DAO
             {
                 if (value.Length == 0)
                 {
-                    throw new ArgumentNullException("trying to add null value to OrderState property");
+                    throw new ArgumentNullException("trying to assign the null value to to OrderState property");
                 }
                 else
                 {
@@ -36,7 +36,7 @@ namespace ExecuteIdentityFramework.DAO
             {
                 if (value.Length == 0)
                 {
-                    throw new ArgumentNullException("trying to add null value to Description property");
+                    throw new ArgumentNullException("trying to assign the null value to Description property");
                 }
                 else
                 {
@@ -44,6 +44,6 @@ namespace ExecuteIdentityFramework.DAO
                 }
             }
         }
-        public bool ? status { get; set; }
+        public bool status { get; set; } = true;
     }
 }

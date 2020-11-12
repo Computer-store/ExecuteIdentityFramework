@@ -10,8 +10,8 @@ namespace ExecuteIdentityFramework.DAO
 {
     public class DeliveryMethods
     {
-       
-        public ObjectId Id { get; set; }
+       [BsonId]
+        public int Id { get; set; }
         private string _methname, _Description;
         public string MethodName
         {
