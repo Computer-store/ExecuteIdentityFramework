@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity.Owin;
 using ExecuteIdentityFramework.Infrastructure;
 using ExecuteIdentityFramework.Models;
 using Microsoft.AspNet.Identity;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace ExecuteIdentityFramework.Controllers
 {
@@ -34,7 +36,7 @@ namespace ExecuteIdentityFramework.Controllers
                     AddErrorsRormResult(result);
                 }
             }
-            
+
             return View(model);
         }
         private void AddErrorsRormResult(IdentityResult result)
@@ -44,6 +46,28 @@ namespace ExecuteIdentityFramework.Controllers
                 ModelState.AddModelError("", error);
             }
         }
+        [HttpPost]
+        public async Task<ActionResult> Delete(string id)
+        {
+            AppUser user = await UserManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                IdentityResult result = await UserManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View("Error", result.Errors);
+                }
+            }
+            else
+            {
+                return View("Error", new string[] { "User Not Found" });
+            }
+        }
+    }
         private AppUserManager UserManager
         {
             get
