@@ -59,6 +59,21 @@ namespace ExecuteIdentityFramework.Controllers
                 return View("Error", new string[] { "User was not found" });
             }
         }
+        public async Task<ActionResult> Edit (string id, string email, string password)
+        {
+            AppUser user = await UserManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                user.Email = email;
+                IdentityResult validateemail = await UserManager.UserValidator.ValidateAsync(user);
+                if (!validateemail.Succeeded)
+                {
+                    AddErrorsRormResult(validateemail);
+                }
+                IdentityResult result = 
+            }
+        }
+
         private void AddErrorsRormResult(IdentityResult result)
         {
             foreach (string error in result.Errors)
