@@ -17,8 +17,22 @@ namespace ExecuteIdentityFramework.Infrastructure
         {
             ApplIdentityDbContext db = context.Get<ApplIdentityDbContext>();
             AppUserManager manager = new AppUserManager(new UserStore<AppUser>(db));
+            manager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 6,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = true
+            };
+            manager.UserValidator = new UserValidator<AppUser>(manager)
+            {
+                AllowOnlyAlphanumericUserNames = true,
+                RequireUniqueEmail = true,
+            };
             return manager;
         }
+       
     }
    
 }
