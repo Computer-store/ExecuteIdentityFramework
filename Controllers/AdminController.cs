@@ -5,7 +5,6 @@ using ExecuteIdentityFramework.Infrastructure;
 using ExecuteIdentityFramework.Models;
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 
 namespace ExecuteIdentityFramework.Controllers
 {
@@ -39,13 +38,6 @@ namespace ExecuteIdentityFramework.Controllers
 
             return View(model);
         }
-        private void AddErrorsRormResult(IdentityResult result)
-        {
-            foreach (string error in result.Errors)
-            {
-                ModelState.AddModelError("", error);
-            }
-        }
         [HttpPost]
         public async Task<ActionResult> Delete(string id)
         {
@@ -64,10 +56,17 @@ namespace ExecuteIdentityFramework.Controllers
             }
             else
             {
-                return View("Error", new string[] { "User Not Found" });
+                return View("Error", new string[] { "User was not found" });
             }
         }
-    }
+        private void AddErrorsRormResult(IdentityResult result)
+        {
+            foreach (string error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
+        }
+
         private AppUserManager UserManager
         {
             get
@@ -75,10 +74,10 @@ namespace ExecuteIdentityFramework.Controllers
 
 
                 return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
-                
-              
+
+
             }
         }
-        
+
     }
 }
