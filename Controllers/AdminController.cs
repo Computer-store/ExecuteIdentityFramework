@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.Owin;
 using ExecuteIdentityFramework.Infrastructure;
 using ExecuteIdentityFramework.Models;
 using Microsoft.AspNet.Identity;
+using System.Threading.Tasks;
 
 namespace ExecuteIdentityFramework.Controllers
 {
