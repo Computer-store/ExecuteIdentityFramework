@@ -20,7 +20,7 @@ namespace ExecuteIdentityFramework.Controllers
             return View();
         }
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Create(CreateModel model)
+        public async Task<ActionResult> Create(CreateModel model)
         {
             if (ModelState.IsValid)
             {
@@ -37,6 +37,15 @@ namespace ExecuteIdentityFramework.Controllers
             }
             
             return View(model);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Delete(string id)
+        {
+            AppUser user = await UserManager.FindByIdAsync(id);
+            if (user != null)
+            {
+
+            }
         }
         private void AddErrorsRormResult(IdentityResult result)
         {
