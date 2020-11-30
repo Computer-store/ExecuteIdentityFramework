@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/Content/menustyle.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <style>
@@ -12,11 +13,36 @@
 
         .validation-summary-errors {
             color: #f00;
-            padding:10px;
+            padding: 10px;
         }
     </style>
 </head>
 <body class="container">
+    <nav>
+        <ul class="topmenu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li>
+                <a href="">Blog</a>
+                <ul class="submenu">
+                    <li><a href="">Category</a></li>
+                    <li><a href="">Author</a></li>
+                    <li><a href="">Archive</a></li>
+                    <li><a href="">Tags</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Portfolio</a>
+                <ul class="submenu">
+                    <li><a href="">Category</a></li>
+                    <li><a href="">Author</a></li>
+                    <li><a href="">Archive</a></li>
+                    <li><a href="">Tags</a></li>
+                </ul>
+            </li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
     <div class="container">
         @RenderBody()
     </div>
