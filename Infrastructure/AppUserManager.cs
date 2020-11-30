@@ -17,6 +17,7 @@ namespace ExecuteIdentityFramework.Infrastructure
         {
             ApplIdentityDbContext db = context.Get<ApplIdentityDbContext>();
             AppUserManager manager = new AppUserManager(new UserStore<AppUser>(db));
+            
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,

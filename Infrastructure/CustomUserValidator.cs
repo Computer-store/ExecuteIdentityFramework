@@ -11,6 +11,8 @@ namespace ExecuteIdentityFramework.Infrastructure
 {
     public class CustomUserValidator:UserValidator<AppUser>
     {
+     
+
         public CustomUserValidator(AppUserManager manager):base(manager)
         {
 
