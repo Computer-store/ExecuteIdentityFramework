@@ -16,7 +16,7 @@ namespace ExecuteIdentityFramework.App_Start
         {
             app.CreatePerOwinContext<ApplIdentityDbContext>(ApplIdentityDbContext.Create);
             app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
-
+            app.CreatePerOwinContext<AppRoleManager>(AppRoleManager.Create);
             app.UseCookieAuthentication(new Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
