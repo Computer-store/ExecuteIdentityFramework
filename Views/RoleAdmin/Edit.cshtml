@@ -21,8 +21,8 @@
                 else
                 {
                     <tr>
-                        <td>User ID</td>
-                        <td>Add role</td>
+                        <td style="color:black;">User ID</td>
+                        <td style="color:black;">Add role</td>
                     </tr>
                     foreach (AppUser user in Model.NonMembers)
                     {
@@ -50,8 +50,24 @@
             }
             else
             {
-                
+                <tr>
+                    <td>User ID</td>
+                    <td>Delete from role</td>
+                </tr>
+                foreach (AppUser user in Model.Members)
+                {
+                    <tr>
+                        <td>
+                            @user.UserName
+                        </td>
+                        <td>
+                            <input type="checkbox" name="IdsToDelete" value="@user.Id"/>
+                        </td>
+                    </tr>
+                }
             }
         </table>
     </div>
-}
+    <button type="submit" class="btn btn-primary">Save changes</button> 
+    @Html.ActionLink("Cancel","Index",null, new { @class = "btn btn-default"})
+ }

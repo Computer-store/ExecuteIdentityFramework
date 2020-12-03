@@ -78,8 +78,8 @@ namespace ExecuteIdentityFramework.Controllers
         public async Task<ActionResult> Edit(string id)
         {
             AppRole role = await RoleManager.FindByIdAsync(id);
-            string[] membersids = role.Users.Select(x => x.UserId).ToArray();
-            IEnumerable<AppUser> members = UserManager.Users.Where(x => membersids.Any(y => y == x.Id));
+            string[] membersIDs = role.Users.Select(x => x.UserId).ToArray();
+            IEnumerable<AppUser> members = UserManager.Users.Where(x => membersIDs.Any(y => y == x.Id));
             IEnumerable<AppUser> nonmembers = UserManager.Users.Except(members);
             return View(new RoleEditModel
             {
@@ -97,7 +97,7 @@ namespace ExecuteIdentityFramework.Controllers
                 foreach (string useid in model.IdsToAdd ?? new string[] { })
                 {
                     result = await UserManager.AddToRoleAsync(useid, model.RoleName);
-                    if (result.Succeeded)
+                    if (!result.Succeeded)
                     {
                         return View("Error", result.Errors);
                     }
