@@ -28,6 +28,7 @@ namespace ExecuteIdentityFramework.Controllers
         public async Task<ActionResult> Login(LoginViewModel login, string returnUrl)
         {
             AppUser user = await UserManager.FindAsync(login.Name,login.Password);
+            
             if (user == null)
             {
                 ModelState.AddModelError("", "you input an uncorrect username or password, please retry");
