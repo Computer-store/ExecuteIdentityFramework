@@ -8,6 +8,8 @@ using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using ExecuteIdentityFramework.DAO;
 using System.Configuration;
+using System.Data.Entity;
+using ExecuteIdentityFramework.ComputerStore.DAO;
 
 namespace ExecuteIdentityFramework.DAO
 {
@@ -28,15 +30,29 @@ namespace ExecuteIdentityFramework.DAO
                 }
             }
         }
+        public MongoClient Client { get; set; }
+        public IMongoDatabase Database { get; set; }
+
         public WorkWithDatabase()
         {
-            _ConnectionString = ConfigurationManager.ConnectionStrings["MongoDbConnection"].ConnectionString;
+            ConnectionString = ConfigurationManager.ConnectionStrings["MongoDbConnection"].ConnectionString;
+            
+            Client = new MongoClient(ConnectionString);
 
+            Database = Client.GetDatabase("ComputerStore");
 
         }
-        public List<Basket> Basket { get; set; }
-        public List<DeliveryMethods> DeliveryMethods {get; set;}
-        //public List<>
+        //------------------------//
+        //-----------------------//
+        public 
+        //public DbSet<PayMethods> PayMethodsContext { get; set; }
+        //public DbSet<SupplerCompanies> SupplerCompaniesContext { get; set; }
+        //public DbSet<Users> UsersContext { get; set; }
+        //public DbSet<Positions> PositionContext { get; set; }
+        //public DbSet<Basket> BasketContext { get; set; }
+        //public DbSet<Orders> OrdersContext { get; set; }
+        //public DbSet<Products> ProductsContext { get; set; }
+
 
     }
 }

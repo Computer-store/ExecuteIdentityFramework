@@ -12,7 +12,8 @@ namespace ExecuteIdentityFramework.DAO
         private string _CompanyName, _Adress, _Description;
         private double _Rathing;
         [BsonId]
-        public int Id { get; set; }
+        public ObjectId Id { get; set; }
+        [BsonElement("CompanyName")]
         public string CompanyName
         {
             set
@@ -31,6 +32,7 @@ namespace ExecuteIdentityFramework.DAO
                 return _CompanyName;
             }
         }
+        [BsonElement("Address")]
         public string Adress
         {
             set
@@ -49,6 +51,7 @@ namespace ExecuteIdentityFramework.DAO
                 return _Adress;
             }
         }
+        [BsonElement("Description")]
         public string Description
         {
             set
@@ -67,6 +70,7 @@ namespace ExecuteIdentityFramework.DAO
                 return _Description;
             }
         }
+        [BsonElement("Rating")]
         public double Rating
         {
             set
@@ -81,6 +85,7 @@ namespace ExecuteIdentityFramework.DAO
                 }
             }
         }
+        [BsonElement("Status")]
         public bool Status { get; set; } = true;
     }
 }
