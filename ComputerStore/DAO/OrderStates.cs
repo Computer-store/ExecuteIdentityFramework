@@ -44,6 +44,6 @@ namespace ExecuteIdentityFramework.DAO
                 }
             }
         }
-        public bool status { get; set; } = true;
+        public bool Status { get; set; } = true;
     }
 }

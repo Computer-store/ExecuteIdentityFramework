@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Collections.Generic;
 
 
 namespace ExecuteIdentityFramework.DAO
@@ -14,7 +15,7 @@ namespace ExecuteIdentityFramework.DAO
         private string _FName, _SName, _MName, _Adress, _Phone;
         private int _Id, _NETM, _NELM;
         public int Id { get; set; }
-        public Positions Position { get; set; }
+        public List<Positions> Position { get; set; }
         public string FirstName { 
             get 
             {

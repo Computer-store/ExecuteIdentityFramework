@@ -1,0 +1,57 @@
+﻿@using ExecuteIdentityFramework.Models
+@model RoleEditModel
+@{ 
+    ViewBag.Title = "Edit role";
+}
+<h2>Edit role</h2>
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    <input type="hidden" name="roleName" value="@Model.Role.Name" />
+    <div class="panel-primary">
+        <div class="panel-heading">
+            Add into role named <b>@Model.Role.Name</b>
+            <table class="table table-striped">
+                @if (Model.NonMembers.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="2">All users into roles</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>User ID</td>
+                        <td>Add role</td>
+                    </tr>
+                    foreach (AppUser user in Model.NonMembers)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>
+                                <input type="checkbox" name="IdsToAdd" value="@user.Id" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </table> 
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Delete from role <b>@Model.Role.Name</b>
+        </div>
+        <table class="table-striped">
+            @if (Model.Members.Count() == 0)
+            {
+                <tr>
+                    <td colspan="2">Nothig users in this role</td>
+                </tr>
+            }
+            else
+            {
+
+            }
+        </table>
+    </div>
+}
