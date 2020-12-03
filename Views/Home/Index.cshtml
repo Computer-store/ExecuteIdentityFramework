@@ -1,27 +1,2 @@
-﻿
-
-@using System.Collections.Generic
-
-@{ 
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@model Dictionary<string, object>
-@{
-
-    ViewBag.Title = "ASP.NET Identity";
-}
-
-
-<div class="panel panel-primary">
-    <div class="panel-heading">User details</div>
-    <table class="table table-striped">
-        @foreach (string key in Model.Keys)
-        {
-            <tr>
-                <th>@key</th>
-                <td>@Model[key]</td>
-            </tr>
-        }
-    </table>
-</div>
+﻿<!doctype HTML>
+<h1 class="text-center">Welcome to computerstore shop!</h1>

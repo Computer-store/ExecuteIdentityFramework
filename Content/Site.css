@@ -15,4 +15,8 @@ select,
 textarea {
     max-width: 280px;
 }
+.body {
+    background: rgb(122,120,54);
+    background: radial-gradient(circle, rgba(122,120,54,0.9948354341736695) 0%, rgba(249,255,0,0.958420868347339) 26%, rgba(219,177,6,1) 50%, rgba(41,39,36,0.9500175070028011) 100%);
+}
 

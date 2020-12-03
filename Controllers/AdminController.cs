@@ -20,7 +20,7 @@ namespace ExecuteIdentityFramework.Controllers
             return View();
         }
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Create(CreateModel model)
+        public async Task<ActionResult> Create(CreateModel model)
         {
             if (ModelState.IsValid)
             {
@@ -35,7 +35,7 @@ namespace ExecuteIdentityFramework.Controllers
                     AddErrorsRormResult(result);
                 }
             }
-
+            
             return View(model);
         }
         [HttpPost]
@@ -48,6 +48,7 @@ namespace ExecuteIdentityFramework.Controllers
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index");
+
                 }
                 else
                 {
@@ -56,24 +57,66 @@ namespace ExecuteIdentityFramework.Controllers
             }
             else
             {
-                return View("Error", new string[] { "User was not found" });
+                return View("Error", new string[] { "User not found" });
             }
         }
-        public async Task<ActionResult> Edit (string id, string email, string password)
+        [HttpPost]
+        public async Task <ActionResult> Edit(string id, string email, string pass)
         {
             AppUser user = await UserManager.FindByIdAsync(id);
             if (user != null)
             {
                 user.Email = email;
-                IdentityResult validateemail = await UserManager.UserValidator.ValidateAsync(user);
-                if (!validateemail.Succeeded)
+                IdentityResult validemail = await UserManager.UserValidator.ValidateAsync(user);
+                if (validemail.Succeeded)
                 {
-                    AddErrorsRormResult(validateemail);
+                    AddErrorsRormResult(validemail);
                 }
-                IdentityResult result = 
+                IdentityResult validpass = null;
+                if (!string.IsNullOrEmpty(pass))
+                {
+                    validpass = await UserManager.PasswordValidator.ValidateAsync(pass);
+                    if (validpass.Succeeded)
+                    {
+                        user.PasswordHash = UserManager.PasswordHasher.HashPassword(pass);
+                    }
+                    else
+                    {
+                        AddErrorsRormResult(validpass);
+                    }
+                }
+                if ((validemail.Succeeded && validpass==null) || (validemail.Succeeded && pass!=string.Empty && validpass.Succeeded))
+                {
+                    IdentityResult result = await UserManager.UpdateAsync(user);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        AddErrorsRormResult(result);
+                    }
+                }
+               
+            } 
+            else
+            {
+                ModelState.AddModelError("", "User Not found");
+            }
+            return View(user);
+        }
+        public async Task<ActionResult> Edit(string id)
+        {
+            AppUser user = await UserManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+            {
+                return RedirectToAction("Index");
             }
         }
-
         private void AddErrorsRormResult(IdentityResult result)
         {
             foreach (string error in result.Errors)
@@ -81,7 +124,6 @@ namespace ExecuteIdentityFramework.Controllers
                 ModelState.AddModelError("", error);
             }
         }
-
         private AppUserManager UserManager
         {
             get
@@ -89,10 +131,10 @@ namespace ExecuteIdentityFramework.Controllers
 
 
                 return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
-
-
+                
+              
             }
         }
-
+        
     }
 }
